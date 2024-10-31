@@ -36,8 +36,9 @@ def bfs(start):
                 visited[w] = 1
 
     return [-1]
+
 N, K = map(int,input().split())
-G = [[] for _ in range(N+1)]        # 그래프 만들기
+G = [[] for _ in range(N+1)]        # 그래프
 arr = [0] * (N+1)
 for i in range(1,N+1):
     arr[i] = input()
