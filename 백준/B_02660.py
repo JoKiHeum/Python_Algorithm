@@ -12,7 +12,6 @@ def bfs(start,end):
     while q:
         v = q.popleft()
         if v == end:
-            print(start,end)
             return visited[v]-1
 
         for w in G[v]:
@@ -25,8 +24,10 @@ N = int(input())
 G = [[] for _ in range(N+1)]        # 인접그래프
 arr = [[0]*N for _ in range(N+1)]
 
-for _ in range(N):
+while True:
     u, v = map(int,input().split())
+    if u == -1 and v == -1:
+        break
     G[u].append(v)
     G[v].append(u)
 
@@ -36,5 +37,23 @@ for i in range(1,N):
         arr[i-1][j-1] = result
         arr[j-1][i-1] = result
 
+rank = [0] * N
+
+# for i in range(N):
+#     print(*arr[i])
+
 for i in range(N):
-    print(*arr[i])
+    rank[i] = max(arr[i])
+
+tmp = min(rank)
+answer = []
+cnt = 0
+for i in range(N):
+    if rank[i] == tmp:
+        cnt += 1
+        answer.append(i+1)
+
+print(tmp, cnt)
+print(*answer)
+
+
