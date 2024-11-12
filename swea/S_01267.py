@@ -19,7 +19,7 @@ def topology_sort():
                 q.append(w)
 
 
-for test_case in range(1,11):
+for test_case in range(1,2):
     V, E = map(int, input().split())        # V: 정점의 갯수, E: 간선의 수
     edges = list(map(int, input().split())) # 간선 정보
     G = [[] for _ in range(V+1)]            # 인접리스트
@@ -29,6 +29,7 @@ for test_case in range(1,11):
         G[u].append(v)
         indegree[v] +=1
 
+    print(indegree)
 
 
     print(f'#{test_case}', end=' ')
